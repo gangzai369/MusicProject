@@ -6,6 +6,7 @@ import Recom from '../views/recommend'
 import Search from '../views/search'
 // 引入css样式
 import '../App.css'
+import '../index.css'
 // 引入路由组件
 import { Switch, Route, Redirect, NavLink } from 'react-router-dom'
 // 导出index组件类

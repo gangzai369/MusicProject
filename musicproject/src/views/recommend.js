@@ -70,6 +70,14 @@ export default class recom extends React.Component{
             ]
         }
     }
+    // 点击跳转到列表页
+    toList(id){
+        this.props.history.push(`/list?id=${id}`)
+    }
+    // 点击跳转播放页
+    toPlay(id){
+        this.props.history.push(`/play?id=${id}`)
+    }
     render(){
         // 解构数据
         const {dataList,songList} = this.state;
@@ -83,7 +91,7 @@ export default class recom extends React.Component{
                 <div className="rBox">
                     {
                         dataList.map(item=>{
-                            return (<div className="sBox" key={item.id}>
+                            return (<div className="sBox" key={item.id} onClick={()=>this.toList(item.id)}>
                                 <img src={item.img} />
                                 <p>{item.msg}</p>
                             </div>)
@@ -105,7 +113,7 @@ export default class recom extends React.Component{
                                         <p className="p1">{item.name}</p>
                                         <p className="p2">{item.autor}</p>
                                     </div>
-                                    <button>&#9835;</button>
+                                    <button onClick={()=>this.toPlay(item.id)}>&#9835;</button>
                                 </div>
                             )
                         })
