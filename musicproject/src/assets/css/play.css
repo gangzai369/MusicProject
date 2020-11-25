@@ -1,0 +1,82 @@
+
+/* 播放页样式 */
+.play{
+    width: 7.5rem;
+    position: relative;
+}
+.play .context{
+    width: 100%;
+    height: 13.34rem;
+    background-image: url('../img/song1.jpg');
+    filter: blur(40px);
+    z-index: -1;
+    position: fixed;
+}
+.play .header{
+    width: 2rem;
+    height: 0.34rem;
+    display: inline-block;
+    margin-top: 0.2rem;
+    margin-left: 0.2rem;
+}
+.play .header img{
+    width: 0.34rem;
+    height: 0.34rem;
+    display: inline-block;
+    vertical-align: middle;
+}
+.play .header span{
+    font-size: 0.28rem;
+    color: #fff;
+    letter-spacing: 0.02rem;
+}
+.play .pole img{
+    width: 2.4rem;
+    height: 3.4rem;
+    position: absolute;
+    top: 0;
+    left: 3.1rem;
+    z-index: 3;
+}
+.play .p-mid{
+    width: 5.4rem;
+    height: 5.4rem;
+    margin: 0 auto;
+    margin-top: 1.2rem;
+    position: relative;
+}
+.play .p-mid .pic1{
+    position: absolute;
+    width: 100%;
+    height: 100%;
+}
+.play .p-mid .pic2{
+    width: 3.6rem;
+    height: 3.6rem;
+    top: 50%;
+    left: 50%;
+    margin-top: -1.8rem;
+    margin-left: -1.8rem;
+    position: absolute;
+    z-index: -1;
+}
+.play .p-mid .pic3{
+    width: 1.4rem;
+    height: 1.4rem;
+    top: 50%;
+    left: 50%;
+    margin-top: -0.7rem;
+    margin-left: -0.7rem;
+    position: absolute;
+}
+.play .s-info{
+    width: 100%;
+    height: 1.8rem;
+}
+.play .s-info .info{
+    width: 5.4rem;
+    height: 1.8rem;
+    margin: 0 auto;
+    margin-top: 0.5rem;
+    background-color: #d43c33;
+}

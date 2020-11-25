@@ -1,38 +1,34 @@
 // 导入react核心库
 import React from 'react'
+// 引入css
+import '../assets/css/rank.css'
+// 引入图标
+import {  PlayCircleOutlined } from '@ant-design/icons';
+// 引入接口
+import {getHotSong} from '../axios'
 // 导出index组件类
 export default class rank extends React.Component{
     constructor(){
         super()
         this.state={
-            songList:[
-                {
-                    id:1,
-                    name:'失眠飞行(原唱：接个吻，开一枪/沈一模啊啊啊)',
-                    autor:'一条小团团OvO-失眠飞行'
-                },
-                {
-                    id:2,
-                    name:'Never(狼殿下战爱版预告宣传曲)',
-                    autor:'Never(狼殿下战爱版预告宣传曲)'
-                },
-                {
-                    id:3,
-                    name:'天性使燃',
-                    autor:'Higher Brothers'
-                },
-                {
-                    id:4,
-                    name:'我愿意：影视剧《最初的相遇，最后的别离》中文主题曲',
-                    autor:'摩登兄弟刘宇宁-我愿意'
-                },
-                {
-                    id:5,
-                    name:'Never(狼殿下战爱版预告宣传曲)',
-                    autor:'Never(狼殿下战爱版预告宣传曲)'
-                },
-            ]
+            songList:[]//歌曲列表
         }
+    }
+    componentDidMount(){
+        getHotSong({
+            id:3778678
+        })
+        .then(res=>{
+            
+            if(res.code===200){
+                this.setState({
+                    songList:res.playlist.tracks.filter((item,idx)=>{
+                        return idx<20
+                    })
+                })
+            }
+            console.log(this.state.songList);
+        })
     }
     render(){
         let myDate = new Date();
@@ -53,13 +49,20 @@ export default class rank extends React.Component{
                             return (
                                 <div className="bigbox" key={item.id}>
                                     <div className="smbox">
-                                        <div className="number">{index=index<10?'0'+index:index}</div>
+                                        <div className="number">{index=(index+1)<10?'0'+(index+1):index+1}</div>
                                         <div>
                                             <p className="p1">{item.name}</p>
-                                            <p className="p2">{item.autor}</p>
+                                            <p className="p2">
+                                                <span></span>&nbsp;
+                                                {item.ar.map(val=>{
+                                                    return (
+                                                        <i key={val.name}>{val.name}&nbsp;</i>
+                                                    )
+                                                })}
+                                            </p>
                                         </div>
                                     </div>
-                                    <button>&#9835;</button>
+                                    <button><PlayCircleOutlined/></button>
                                 </div>
                             )
                         })

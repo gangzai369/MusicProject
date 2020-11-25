@@ -1,0 +1,83 @@
+/* 排行榜样式 */
+.rank .r-header{
+    width: 100%;
+    height: 2.9rem;
+    background-color: #d43c33;
+}
+.rank .r-header .h-bg{
+    width: 2.84rem;
+    height: 2rem;
+    background-image: url('../img/bg-g.png');
+    background-repeat: no-repeat;
+    background-position: -0.5rem -0.6rem;
+    background-size: 3.32rem 2.4rem;
+    margin-left: 0.3rem;
+    margin-top: 0.1rem;
+}
+.rank .r-header p{
+    color: #dddddd;
+    margin-left: 0.3rem;
+    margin-top: 0.1rem;
+}
+/* 音乐列表 */
+.rank .songlist{
+    width: 100%;
+}
+.rank .songlist .bigbox{
+    width: 100%;
+    height: 1.1rem;
+    position: relative;
+    border-bottom: 0.01rem solid #ddd;
+}
+.rank .songlist .bigbox .smbox{
+    height: 1.1rem;
+    width: 6.5rem;
+    display: flex;
+    justify-content: space-between;
+}
+.rank .songlist .bigbox .smbox .number{
+    height: 1.1rem;
+    font-size: 0.3rem;
+    line-height: 1.1rem;
+}
+.rank .songlist .bigbox:nth-child(-n+3){
+    color: #d43c33;
+}
+.rank .songlist .bigbox .smbox .p1{
+    font-size: 0.34rem;
+    width: 6rem;
+    height: 0.5rem;
+    margin-top: 0.1rem;
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+    color: #333;
+}
+.rank .songlist .bigbox .smbox .p2{
+    font-size: 0.18rem;
+    color: #6d6d6d;
+    width: 6rem;
+}
+.rank .songlist .bigbox .smbox .p2 span{
+    display: inline-block;
+    width: 0.24rem;
+    height: 0.16rem;
+    background-image: url('../img/bg-g.png');
+    background-size: 3.32rem 1.94rem;
+    background-repeat: no-repeat;
+}
+.rank .songlist .bigbox button{
+    font-size: 0.34rem;
+    color: #aaa;
+    position: absolute;
+    top: 0.15rem;
+    right: 0.2rem;
+}
+.rank .bottom{
+    width: 100%;
+    height: 1.1rem;
+    font-size: 0.34rem;
+    color: #bdbdbd;
+    line-height: 1.1rem;
+    text-align: center;
+}

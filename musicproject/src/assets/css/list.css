@@ -1,0 +1,164 @@
+/* 列表页样式 */
+.list{
+    width: 7.5rem;
+    overflow: hidden;
+}
+.list .header{
+    width: 100%;
+    height: 4.5rem;
+    position: relative;
+    overflow: hidden;
+}
+.list .header .img{
+    width: 100%;
+    height: 100%;
+    background-image: url('../img/1.jpg');
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: 100% 100%;
+    overflow: hidden;
+    filter: blur(8px);
+    position: absolute;
+    z-index: -1;
+}
+.list .header .outer{
+    display: flex;
+    width: 7rem;
+    height: 2.5rem;
+    margin: 1rem auto;
+}
+.list .header .outer .left{
+    width: 2.5rem;
+    height: 2.5rem;
+    background-image: url('../img/1.jpg');
+    background-repeat: no-repeat;
+    background-size: 100% 100%;
+}
+.list .header .outer .right{
+    margin-left: 0.3rem;
+}
+.list .header .outer .right .p1{
+    font-size: 0.32rem;
+    color: #fff;
+}
+.list .header .outer .right .p2{
+    font-size: 0.22rem;
+    color: #aaa;
+    margin-top: 1rem;
+}
+.list .s-list{
+    width: 100%;
+    height: 0.36rem;
+    background-color: #aaa;
+}
+.list .s-list p{
+    color: #333;
+    font-size: 0.22rem;
+    line-height: 0.36rem;
+    margin-left: 0.2rem;
+}
+/* 音乐列表 */
+.list .songlist{
+    width: 100%;
+}
+.list .songlist .bigbox{
+    width: 100%;
+    height: 1.1rem;
+    position: relative;
+    border-bottom: 0.01rem solid #ddd;
+}
+.list .songlist .bigbox .smbox{
+    height: 1.1rem;
+    width: 6.5rem;
+    display: flex;
+    justify-content: space-between;
+}
+.list .songlist .bigbox .smbox .number{
+    height: 1.1rem;
+    font-size: 0.3rem;
+    line-height: 1.1rem;
+}
+.list .songlist .bigbox:nth-child(-n+3){
+    color: #d43c33;
+}
+.list .songlist .bigbox .smbox .p1{
+    font-size: 0.34rem;
+    width: 6rem;
+    height: 0.5rem;
+    margin-top: 0.1rem;
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+    color: #333;
+}
+.list .songlist .bigbox .smbox .p2{
+    font-size: 0.18rem;
+    color: #6d6d6d;
+    width: 6rem;
+}
+.list .songlist .bigbox button{
+    font-size: 0.4rem;
+    position: absolute;
+    top: 0.15rem;
+    right: 0.2rem;
+}
+/* 底部评价样式 */
+.list .assess .text{
+    width: 100%;
+    height: 0.4rem;
+    background-color: silver;
+    z-index: 10;
+}
+.list .assess p{
+    line-height: 0.4rem;
+    color: #333;
+    font-size: 0.2rem;
+}
+.list .assess .context{
+    width: 100%;
+    min-height: 1.6rem;
+    padding-left: 0.2rem;
+    border-bottom: 0.01rem solid #aaa;
+    display: flex;
+    position: relative;
+}
+.list .assess .context img{
+    width: 0.6rem;
+    height: 0.6rem;
+    border-radius: 50%;
+}
+.list .assess .context .c-user{
+    width: 2.5rem;
+    min-height: 0.76rem;
+    margin-left: 0.2rem;
+}
+.list .assess .context .c-user .p1{
+    font-size: 0.28rem;
+}
+.list .assess .context .c-user .p2{
+    font-size: 0.12rem;
+}
+.list .assess .context .c-user .p3{
+    width: 4rem;
+    margin-top: 0.2rem;
+    font-size: 0.26rem;
+}
+.list .assess .context .c-supper{
+    position: absolute;
+    top: 0.2rem;
+    right: 0.4rem;
+    font-size: 0.5rem;
+}
+/* 查看更多评价 */
+.list .b-assess{
+    margin: 0.2rem auto;
+    width: 6rem;
+    height: 0.5rem;
+    font-size: 0.28rem;
+    border: 0.01rem solid #aaa;
+    border-radius: 0.25rem;
+}
+.list .b-assess p{
+    text-align: center;
+    line-height: 0.5rem;
+}

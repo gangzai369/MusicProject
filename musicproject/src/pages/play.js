@@ -1,5 +1,7 @@
 // 导入react核心库
 import React from 'react'
+// 引入css
+import '../assets/css/play.css'
 // 引入图片
 import img from '../assets/img/song1.jpg'
 import img1 from '../assets/img/z-9.png'

@@ -1,0 +1,166 @@
+/* ======推荐组件，推荐歌单====== */
+.recom .title{
+    height: 0.3rem;
+    margin: 0.2rem 0;
+    width: 100%;
+    font-size: 0.3rem;
+    line-height: 0.3rem;
+}
+.recom .title .span1{
+    display: inline-block;
+    height: 0.3rem;
+    width: 0.06rem;
+    background-color: #d43c33;
+}
+.recom .title .span2{
+    line-height: 0.3rem;
+    display: inline-block;
+    margin-left: 0.1rem;
+}
+/* 轮播图样式 */
+.recom .banner{
+    width: 100%;
+    height: 3.4rem;
+}
+.recom .banner .header{
+    width: 100%;
+    height: 0.3rem;
+    line-height: 0.3rem;
+    background-color: #ddd;
+    text-align: center;
+}
+.recom .banner .b-box img{
+    width: 100%;
+    height: 3rem;
+}
+/* 六个分类模式 */
+.recom .rBox{
+    width: 100%;
+    height: 7rem;
+    display: flex;
+    justify-content: space-around;
+    flex-wrap: wrap;
+}
+.recom .rBox .sBox{
+    height: 3.5rem;
+    width: 2.4rem;
+    position: relative;
+}
+.recom .rBox .sBox img{
+    width: 2.4rem;
+}
+.recom .rBox .sBox p{
+    width: 2.2rem;
+    line-height: 0.28rem;
+    margin: 0 auto;
+    margin-top: 0.1rem;
+    font-size: 0.22rem;
+    letter-spacing: 0.01rem;
+}
+.recom .rBox .sBox .sum{
+    line-height: 0.36rem;
+    display: block;
+    position: absolute;
+    top: 0;
+    right: 0.1rem;
+    font-size: 0.20rem;
+    color: #fff;
+}
+/* ======推荐组件，最新音乐====== */
+.recom .title1{
+    height: 0.3rem;
+    margin: 0.3rem 0;
+    width: 100%;
+    font-size: 0.3rem;
+    line-height: 0.3rem;
+}
+.recom .title1 .span1{
+    display: inline-block;
+    height: 0.3rem;
+    width: 0.06rem;
+    background-color: #d43c33;
+}
+.recom .title1 .span2{
+    line-height: 0.3rem;
+    display: inline-block;
+    margin-left: 0.1rem;
+}
+/* 音乐列表 */
+.recom .songlist{
+    width: 100%;
+}
+.recom .songlist .bigbox{
+    width: 100%;
+    height: 1.1rem;
+    position: relative;
+    border-bottom: 0.01rem solid #ddd;
+}
+.recom .songlist .bigbox .smbox{
+    height: 1.1rem;
+    width: 6.5rem;
+}
+.recom .songlist .bigbox .smbox .p1{
+    font-size: 0.34rem;
+    width: 6.3rem;
+    height: 0.5rem;
+    margin-left: 0.2rem;
+    margin-top: 0.2rem;
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+}
+.recom .songlist .bigbox .smbox .p2{
+    font-size: 0.18rem;
+    color: #6d6d6d;
+    width: 6.4rem;
+    margin-left: 0.2rem;
+}
+.recom .songlist .bigbox .smbox .p2 span{
+    display: inline-block;
+    width: 0.24rem;
+    height: 0.16rem;
+    background-image: url('../img/bg-g.png');
+    background-size: 3.32rem 1.94rem;
+    background-repeat: no-repeat;
+}
+.recom .songlist .bigbox button{
+    font-size: 0.36rem;
+    color: #aaa;
+    position: absolute;
+    top: 0.15rem;
+    right: 0.2rem;
+}
+/* 底部栏 */
+.recom .footer{
+    width: 100%;
+    height: 4rem;
+    margin-top: 0.4rem;
+    background-image: url('../img/bg.png');
+}
+.recom .footer .text{
+    font-family: sans-serif,'STHeiTi';
+    width: 100%;
+    height: 0.88rem;
+    font-size: 0.6rem;
+    text-align: center;
+    line-height: 0.88rem;
+    margin-top: 0.8rem;
+}
+.recom .footer .textapp{
+    height: 0.8rem;
+    width: 6rem;
+    margin: 0 auto;
+    margin-top: 0.5rem;
+    line-height: 0.8rem;
+    text-align: center;
+    border-radius: 0.4rem;
+    color: #d43c33;
+    font-size: 0.32rem;
+    border: 0.02rem solid #d43c33;
+}
+.recom .footer p{
+    margin-top: 0.3rem;
+    font-size: 0.12rem;
+    text-align: center;
+    color: #bdbdbd;
+}

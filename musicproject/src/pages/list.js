@@ -1,6 +1,8 @@
 // 导入react核心库
 import React from 'react'
 import imgs from '../assets/img/u1.jpg'
+// 引入css 
+import '../assets/css/list.css'
 // 导出index组件类
 export default class list extends React.Component{
     constructor(){

@@ -1,5 +1,10 @@
 // 导入react核心库
 import React from 'react'
+// 引入css
+import '../assets/css/search.css'
+// 引入接口
+import {getHotSearch,getAboutSearch} from '../axios'
+
 // 导出index组件类
 export default class search extends React.Component{
     constructor(){
@@ -11,41 +16,9 @@ export default class search extends React.Component{
             isshow:'block',//热搜显示
             show:'none',//搜索显示
             inpShow:'none',//input框重置按钮
-            // 热门词条
-            hotList:[
-                {
-                    id:1,
-                    name:"耗子尾汁"
-                },
-                {
-                    id:2,
-                    name:"到此为止"
-                },
-                {
-                    id:3,
-                    name:"执迷不悟"
-                },
-                {
-                    id:4,
-                    name:"陈奕迅新歌"
-                },
-                {
-                    id:5,
-                    name:"许嵩"
-                },
-                {
-                    id:6,
-                    name:"薛之谦"
-                },
-                {
-                    id:7,
-                    name:"李荣浩"
-                },
-                {
-                    id:8,
-                    name:"周杰伦motic"
-                },
-            ]
+            hotList:[],// 热门词条
+            aboutList1:[],//输入词条进行关联查询
+            aboutList2:[],//输入词条进行关联查询
         }
     }
     // 封装input输入改变事件
@@ -59,6 +32,16 @@ export default class search extends React.Component{
                 msg:''
             })
         }else{
+            // 调用接口
+            // getAboutSearch({
+            //     keywords:e.target.value
+            // })
+            // .then(res=>{
+            //     if(res.code===200){
+            //         // this.setState
+            //     }
+            //     console.log(res.result);
+            // })
             this.setState({
                 isshow:'none',
                 show:'block',
@@ -76,6 +59,17 @@ export default class search extends React.Component{
             isshow:'block',//热搜显示
             show:'none',//搜索显示
             inpShow:'none',//input框重置按钮
+        })
+    }
+    // 挂载节点
+    componentDidMount(){
+        getHotSearch()
+        .then(res=>{
+            if(res.code===200){
+                this.setState({
+                    hotList:res.result.hots
+                })
+            }
         })
     }
     render(){
@@ -102,8 +96,8 @@ export default class search extends React.Component{
                     {
                         hotList.map(item=>{
                             return (
-                                <div className="box" key={item.id}>
-                                    {item.name}
+                                <div className="box" key={item.first}>
+                                    {item.first}
                                 </div>
                             )
                         })

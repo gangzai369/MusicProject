@@ -1,99 +1,99 @@
 // 导入react核心库
 import React from 'react'
 // 引入css样式
-import '../App.css'
-// 导入图片
-import img1 from '../assets/img/1.jpg'
-import img2 from '../assets/img/2.jpg'
-import img3 from '../assets/img/3.jpg'
-import img4 from '../assets/img/4.jpg'
-import img5 from '../assets/img/5.jpg'
-import img6 from '../assets/img/6.jpg'
+import '../assets/css/recommend.css'
+
+// 引入图标
+import { CustomerServiceOutlined, PlayCircleOutlined } from '@ant-design/icons';
+// 引入接口
+import { getMusic, getNewMusic, getBannerList } from '../axios'
+import Axios from 'axios';
+// 导入ant
+import { message, } from 'antd';
+// 引入swipper
+import '../assets/css/swiper-bundle.css'
+import Swiper from 'swiper'
 // 导出index组件类
-export default class recom extends React.Component{
-    constructor(){
+export default class recom extends React.Component {
+    constructor() {
         super()
-        this.state={
-            dataList:[
-                {
-                    id:1,
-                    img:img1,
-                    msg:'「Dream Time」驶入淡紫色梦境'
-                },
-                {
-                    id:2,
-                    img:img2,
-                    msg:'我想把这些甜甜的歌都唱给你听'
-                },
-                {
-                    id:3,
-                    img:img3,
-                    msg:'『精选翻唱』万人血书求完整～'
-                },
-                {
-                    id:4,
-                    img:img4,
-                    msg:'我对你又何止是执迷不悟'
-                },
-                {
-                    id:5,
-                    img:img5,
-                    msg:'“所以你长篇大论换来了什么.”'
-                },
-                {
-                    id:6,
-                    img:img6,
-                    msg:'做全世界的大人，只做你一个人的小朋友'
-                }
-            ],
-            songList:[
-                {
-                    id:1,
-                    name:'失眠飞行(原唱：接个吻，开一枪/沈一模啊啊啊)',
-                    autor:'一条小团团OvO-失眠飞行'
-                },
-                {
-                    id:2,
-                    name:'Never(狼殿下战爱版预告宣传曲)',
-                    autor:'Never(狼殿下战爱版预告宣传曲)'
-                },
-                {
-                    id:3,
-                    name:'天性使燃',
-                    autor:'Higher Brothers'
-                },
-                {
-                    id:4,
-                    name:'我愿意：影视剧《最初的相遇，最后的别离》中文主题曲',
-                    autor:'摩登兄弟刘宇宁-我愿意'
-                },
-            ]
+        this.state = {
+            dataList: [],//推荐歌单列表
+            songList: [],//新歌列表
+            bannerList: []//轮播图
         }
     }
     // 点击跳转到列表页
-    toList(id){
+    toList(id) {
         this.props.history.push(`/list?id=${id}`)
     }
     // 点击跳转播放页
-    toPlay(id){
+    toPlay(id) {
         this.props.history.push(`/play?id=${id}`)
     }
-    render(){
+    // 挂载函数
+    componentDidMount() {
+        // 使用axios.all方法
+        Axios.all([getMusic({ limit: 6 }), getNewMusic(), getBannerList()])
+            .then(Axios.spread((res1, res2, res3) => {
+                if (res1.code === 200 && res2.code === 200 && res3.code === 200) {
+                    this.setState({
+                        dataList: res1.result,
+                        songList: res2.result,
+                        bannerList: res3.banners
+                    })
+                } else {
+                    message.error('网络错误，请稍后再试')
+                }
+            }));
+    }
+    // 轮播效果放到更新函数中
+    componentDidUpdate(){
+        // 实例化swipper
+        new Swiper('.swiper-container',{
+            autoplay:{
+                delay:2000
+            },
+            loop: true,
+        });
+    }
+    render() {
         // 解构数据
-        const {dataList,songList} = this.state;
-        return(
+        const { dataList, songList, bannerList } = this.state;
+        return (
             <div className="recom">
+                {/* 插入轮播图 */}
+                <div className='banner'>
+                    <div className="header"></div>
+                    <div className="b-box">
+                        <div className="swiper-container">
+                            <div className="swiper-wrapper">
+                                {bannerList.map(item => {
+                                    return (
+                                        <div className="swiper-slide" key={item.imageUrl}>
+                                            <img src={item.imageUrl} />
+                                        </div>
+                                    )
+                                })}
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                {/* 推荐歌单 */}
                 <div className="title">
                     <span className="span1"></span>
                     <span className="span2">推荐歌单</span>
                 </div>
-                {/* 推荐歌单 */}
                 <div className="rBox">
                     {
-                        dataList.map(item=>{
-                            return (<div className="sBox" key={item.id} onClick={()=>this.toList(item.id)}>
-                                <img src={item.img} />
-                                <p>{item.msg}</p>
+                        dataList.map(item => {
+                            return (<div className="sBox" key={item.id} onClick={() => this.toList(item.id)}>
+                                <img src={item.picUrl} />
+                                <p>{item.name}</p>
+                                <div className="sum">
+                                    <CustomerServiceOutlined />&nbsp;
+                                    <span>{parseInt(item.playCount / 1000) / 10} 万</span>
+                                </div>
                             </div>)
                         })
                     }
@@ -106,14 +106,20 @@ export default class recom extends React.Component{
                 {/* 音乐列表直接循环 */}
                 <div className="songlist">
                     {
-                        songList.map(item=>{
+                        songList.map(item => {
                             return (
                                 <div className="bigbox" key={item.id}>
                                     <div className="smbox">
                                         <p className="p1">{item.name}</p>
-                                        <p className="p2">{item.autor}</p>
+                                        <p className="p2"><span></span> {item.song.artists.map(val => {
+                                            return (
+                                                <i key={val.id}>{val.name}&nbsp;</i>
+                                            )
+                                        })}
+                                        -<i>{item.name}</i>
+                                        </p>
                                     </div>
-                                    <button onClick={()=>this.toPlay(item.id)}>&#9835;</button>
+                                    <button onClick={() => this.toPlay(item.id)}><PlayCircleOutlined /></button>
                                 </div>
                             )
                         })
