@@ -12,12 +12,11 @@
 .list .header .img{
     width: 100%;
     height: 100%;
-    background-image: url('../img/1.jpg');
     background-repeat: no-repeat;
     background-position: center;
     background-size: 100% 100%;
     overflow: hidden;
-    filter: blur(8px);
+    filter: blur(12px);
     position: absolute;
     z-index: -1;
 }
@@ -30,21 +29,40 @@
 .list .header .outer .left{
     width: 2.5rem;
     height: 2.5rem;
-    background-image: url('../img/1.jpg');
-    background-repeat: no-repeat;
-    background-size: 100% 100%;
+    position: relative;
+}
+.list .header .outer .left .sum{
+    line-height: 0.36rem;
+    display: block;
+    position: absolute;
+    top: 0;
+    right: 0.1rem;
+    font-size: 0.20rem;
+    color: #fff;
+}
+.list .header .outer .left img{
+    width: 100%;
+    height: 100%;
 }
 .list .header .outer .right{
     margin-left: 0.3rem;
 }
 .list .header .outer .right .p1{
-    font-size: 0.32rem;
+    width: 4rem;
+    font-size: 0.26rem;
     color: #fff;
 }
 .list .header .outer .right .p2{
     font-size: 0.22rem;
-    color: #aaa;
+    color: #f0f0f0;
     margin-top: 1rem;
+}
+.list .header .outer .right .p2 img{
+    height: 0.3rem;
+    width: 0.3rem;
+    border-radius: 50%;
+    display: inline-block;
+    vertical-align: middle;
 }
 .list .s-list{
     width: 100%;
@@ -74,6 +92,7 @@
     justify-content: space-between;
 }
 .list .songlist .bigbox .smbox .number{
+    width: 0.8rem;
     height: 1.1rem;
     font-size: 0.3rem;
     line-height: 1.1rem;
@@ -82,7 +101,7 @@
     color: #d43c33;
 }
 .list .songlist .bigbox .smbox .p1{
-    font-size: 0.34rem;
+    font-size: 0.3rem;
     width: 6rem;
     height: 0.5rem;
     margin-top: 0.1rem;
@@ -95,7 +114,11 @@
     font-size: 0.18rem;
     color: #6d6d6d;
     width: 6rem;
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
 }
+
 .list .songlist .bigbox button{
     font-size: 0.4rem;
     position: absolute;

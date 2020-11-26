@@ -87,3 +87,48 @@
     line-height: 0.8rem;
     font-size: 0.3rem;
 }
+/* 音乐列表 */
+.search .searchname{
+    width: 100%;
+}
+.search .searchname .bigbox{
+    width: 100%;
+    height: 1.1rem;
+    position: relative;
+    border-bottom: 0.01rem solid #ddd;
+}
+.search .searchname .bigbox .smbox{
+    height: 1.1rem;
+    width: 6.5rem;
+}
+.search .searchname .bigbox .smbox .p1{
+    font-size: 0.34rem;
+    width: 6.3rem;
+    height: 0.5rem;
+    margin-left: 0.2rem;
+    margin-top: 0.2rem;
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+}
+.search .searchname .bigbox .smbox .p2{
+    font-size: 0.18rem;
+    color: #6d6d6d;
+    width: 6.4rem;
+    margin-left: 0.2rem;
+}
+.search .searchname .bigbox .smbox .p2 span{
+    display: inline-block;
+    width: 0.24rem;
+    height: 0.16rem;
+    background-image: url('../img/bg-g.png');
+    background-size: 3.32rem 1.94rem;
+    background-repeat: no-repeat;
+}
+.search .searchname .bigbox button{
+    font-size: 0.36rem;
+    color: #aaa;
+    position: absolute;
+    top: 0.15rem;
+    right: 0.2rem;
+}

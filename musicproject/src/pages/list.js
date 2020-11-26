@@ -1,8 +1,14 @@
 // 导入react核心库
 import React from 'react'
 import imgs from '../assets/img/u1.jpg'
+import qstring from 'querystring'
 // 引入css 
 import '../assets/css/list.css'
+// 引入图标
+import { CustomerServiceOutlined } from '@ant-design/icons';
+// 引入接口
+import {getHotSong} from '../axios'
+
 // 导出index组件类
 export default class list extends React.Component{
     constructor(){
@@ -10,39 +16,23 @@ export default class list extends React.Component{
         
         this.state={
             imgUrl:imgs,
-            data:{
-                id:1001,
-                firstName:'我对你又何止是执迷不悟',
-                autor:'稔知',
-                songList:[
-                        {
-                            id:1,
-                            name:'失眠飞行(原唱：接个吻，开一枪/沈一模啊啊啊)',
-                            autor:'一条小团团OvO-失眠飞行'
-                        },
-                        {
-                            id:2,
-                            name:'Never(狼殿下战爱版预告宣传曲)',
-                            autor:'Never(狼殿下战爱版预告宣传曲)'
-                        },
-                        {
-                            id:3,
-                            name:'天性使燃',
-                            autor:'Higher Brothers'
-                        },
-                        {
-                            id:4,
-                            name:'我愿意：影视剧《最初的相遇，最后的别离》中文主题曲',
-                            autor:'摩登兄弟刘宇宁-我愿意'
-                        },
-                        {
-                            id:5,
-                            name:'Never(狼殿下战爱版预告宣传曲)',
-                            autor:'Never(狼殿下战爱版预告宣传曲)'
-                        },
-                ]
-            }
+            data:{}
         }
+    }
+    componentDidMount(){
+        let qs = this.props.location.search.slice(1)
+        // console.log(qs);
+        getHotSong({
+            id:qstring.parse(qs).id
+        })
+        .then(res=>{
+            if(res.code===200){
+                this.setState({
+                    data:res.playlist
+                })
+            }
+            console.log(this.state.data);
+        })
     }
     // 组件加载调用接口获取数据
     render(){
@@ -51,12 +41,21 @@ export default class list extends React.Component{
         return(
             <div className="list">
                 <div className="header">
-                    <div className="img"></div>
+                    <div className="img" style={{backgroundImage: 'url(' +data.coverImgUrl + ')'}}></div>
                     <div className="outer">
-                        <div className="left"></div>
+                        <div className="left">
+                            <img src={data.coverImgUrl}></img>
+                            <div className="sum">
+                                    <CustomerServiceOutlined />&nbsp;
+                                    <span>{parseInt(data.playCount / 1000) / 10} 万</span>
+                                </div>
+                        </div>
                         <div className="right">
-                            <p className="p1">{data.firstName}</p>
-                            <p className="p2">{data.autor}</p>
+                            <p className="p1">{data.name}</p>
+                            <p className="p2">
+                                <img src={data.creator?data.creator.avatarUrl:''}></img>
+                                <i>&nbsp;{data.creator?data.creator.nickname:''}</i>
+                            </p>
                         </div>
                     </div>
                 </div>
@@ -65,21 +64,31 @@ export default class list extends React.Component{
                 </div>
                 {/* 音乐列表直接循环 */}
                 <div className="songlist">
-                    {
-                        data.songList.map((item,index)=>{
+                    {data.tracks?
+                        data.tracks.map((item,index)=>{
                             return (
                                 <div className="bigbox" key={item.id}>
                                     <div className="smbox">
-                                        <div className="number">{index=index<10?'0'+index:index}</div>
+                                        <div className="number">&nbsp;{index+1}</div>
                                         <div>
                                             <p className="p1">{item.name}</p>
-                                            <p className="p2">{item.autor}</p>
+                                            <p className="p2">
+                                                <span></span>
+                                                {
+                                                    item.ar.map(val=>{
+                                                        return (
+                                                            <i key={val.name}>{val.name}</i>
+                                                        )
+                                                    })
+                                                }
+                                                -<i>{item.name}</i>
+                                            </p>
                                         </div>
                                     </div>
                                     <button>&#9835;</button>
                                 </div>
                             )
-                        })
+                        }):''
                     }
                 </div>
                 {/* 底部评价 */}

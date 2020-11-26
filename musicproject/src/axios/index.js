@@ -25,9 +25,34 @@ export function getAboutSearch(params){
         params
     })
 }
-// 获取热歌列表
+// 获取热歌列表或者歌单列表
 export function getHotSong(params){
     return http.get('/playlist/detail',{
+        params
+    })
+}
+//获取歌曲详情
+export function songDetail(params){
+    return http.get('/song/detail',{
+        params
+    })
+}
+//封装一个搜索接口
+export function getSearch(params){
+    return http.get('/search',{
+        params
+    })
+}
+//获取音乐URL
+export function playUrl(params){
+    return http.get('/song/url',{
+        params
+    })
+}
+
+//获取歌词
+export function getLyric(params){
+    return http.get('/lyric',{
         params
     })
 }
