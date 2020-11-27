@@ -5,7 +5,7 @@ import qstring from 'querystring'
 // 引入css 
 import '../assets/css/list.css'
 // 引入图标
-import { CustomerServiceOutlined } from '@ant-design/icons';
+import { CustomerServiceOutlined,PlayCircleOutlined } from '@ant-design/icons';
 // 引入接口
 import {getHotSong} from '../axios'
 
@@ -33,6 +33,10 @@ export default class list extends React.Component{
             }
             console.log(this.state.data);
         })
+    }
+    // 点击跳转播放页
+    toPlay(id) {
+        this.props.history.push(`/play?id=${id}`)
     }
     // 组件加载调用接口获取数据
     render(){
@@ -85,7 +89,7 @@ export default class list extends React.Component{
                                             </p>
                                         </div>
                                     </div>
-                                    <button>&#9835;</button>
+                                    <button onClick={() => this.toPlay(item.id)}><PlayCircleOutlined /></button>
                                 </div>
                             )
                         }):''

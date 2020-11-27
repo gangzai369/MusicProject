@@ -153,7 +153,7 @@ export default class play extends React.Component {
                 <div className="p-mid" onClick={this.toControl.bind(this)}>
                     <img className="pic1" src={pmid} alt="" />
                     <img className="pic2" src={imgg ? imgg : pics1} alt="" />
-                    <img className="pic3" src={pics2} alt="" ref={this.playIcon} />
+                    <img className="pic3" src={pics2} alt="" ref={this.playIcon} style={{display:'none'}} />
                 </div>
                 {/* 歌曲信息，渲染数据 */}
                 <div className="s-info">

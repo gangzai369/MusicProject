@@ -27,8 +27,11 @@ export default class rank extends React.Component{
                     })
                 })
             }
-            console.log(this.state.songList);
         })
+    }
+    // 点击跳转播放页
+    toPlay(id) {
+        this.props.history.push(`/play?id=${id}`)
     }
     render(){
         let myDate = new Date();
@@ -62,7 +65,7 @@ export default class rank extends React.Component{
                                             </p>
                                         </div>
                                     </div>
-                                    <button><PlayCircleOutlined/></button>
+                                    <button onClick={() => this.toPlay(item.id)}><PlayCircleOutlined /></button>
                                 </div>
                             )
                         })
